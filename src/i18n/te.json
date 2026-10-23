@@ -1,0 +1,71 @@
+{
+  "app": {
+    "name": "MedRemind",
+    "tagline": "వృద్ధుల కోసం సులభమైన మరియు సురక్షితమైన ఔషధ సహాయకం",
+    "disclaimer": "ఇది కేవలం మందుల రిమైండర్ సాధనం, అత్యవసర చికిత్సా వ్యవస్థ కాదు."
+  },
+  "nav": {
+    "dashboard": "నేటి మందులు",
+    "medicines": "నా మందులు",
+    "history": "చరిత్ర",
+    "prescriptions": "ప్రిస్క్రిప్షన్",
+    "caregivers": "సంరక్షకుడు",
+    "emergency": "అత్యవసరం (SOS)",
+    "settings": "సెట్టింగ్‌లు",
+    "logout": "లాగౌట్"
+  },
+  "dashboard": {
+    "greetingMorning": "శుభోదయం",
+    "greetingAfternoon": "శుభ మధ్యాహ్నం",
+    "greetingEvening": "శుభ సాయంత్రం",
+    "greetingNight": "శుభరాత్రి",
+    "todayIs": "ఈరోజు",
+    "nextDose": "తదుపరి మందు సమయం",
+    "noNextDose": "ఈరోజుకి ఇక మందులు లేవు. చాలా బాగుంది!",
+    "scheduledAt": "నిర్దేశిత సమయం",
+    "takeDose": "మందు వేసుకున్నాను",
+    "snoozeDose": "తర్వాత గుర్తుచేయండి",
+    "missDose": "మందు తప్పిపోయింది",
+    "confirmSuccess": "మందు వేసుకున్న సమాచారం విజయవంతంగా నమోదైంది!",
+    "snoozeSuccess": "15 నిమిషాల తర్వాత మళ్లీ గుర్తు చేస్తాము.",
+    "missSuccess": "తప్పిన మందు నమోదు చేయబడింది. వైద్యుల సలహా లేకుండా డబుల్ డోస్ తీసుకోకండి.",
+    "timelineTitle": "నేటి పూర్తి షెడ్యూల్",
+    "asNeededTitle": "అవసరమైనప్పుడు వేసుకునే మందులు (PRN)",
+    "statusTaken": "వేసుకున్నారు",
+    "statusScheduled": "మిగిలివుంది",
+    "statusSkipped": "వదిలేశారు",
+    "statusMissed": "తప్పింది",
+    "caregiverStatus": "సంరక్షకుడి స్థితి",
+    "emergencyStatus": "అత్యవసర కాంటాక్ట్",
+    "offlineNotice": "ఆఫ్‌లైన్ - డేటా ఫోన్‌లో సేవ్ అవుతోంది",
+    "voiceButton": "మాట్లాడి తెలుసుకోండి",
+    "viewPrescriptions": "ప్రిస్క్రిప్షన్లు చూడండి"
+  },
+  "emergency": {
+    "title": "అత్యవసర సహాయం (Emergency SOS)",
+    "subtitle": "ఆపద సమయంలో తక్షణమే సంప్రదించండి",
+    "sosButton": "అత్యవసర కాల్ (SOS Call)",
+    "sosConfirmTitle": "మీరు అత్యవసర నంబర్‌కు కాల్ చేయాలనుకుంటున్నారా?",
+    "sosConfirmDesc": "ఇది మీ ఫోన్ డయలర్‌ను తెరుస్తుంది.",
+    "callNow": "అవును, ఇప్పుడే కాల్ చేయండి",
+    "cancel": "రద్దు చేయండి",
+    "primaryContact": "ప్రధాన కాంటాక్ట్",
+    "caregiverContact": "సంరక్షకుడికి కాల్",
+    "addContact": "కొత్త అత్యవసర కాంటాక్ట్ జోడించండి",
+    "disclaimer": "హెచ్చరిక: ఇది 108/112 ప్రభుత్వ అత్యవసర అంబులెన్స్ సేవకు ప్రత్యామ్నాయం కాదు."
+  },
+  "settings": {
+    "title": "సెట్టింగ్‌లు & గోప్యత",
+    "language": "భాష (Language)",
+    "textSize": "అక్షరాల పరిమాణం",
+    "textNormal": "సాధారణం",
+    "textLarge": "పెద్దది (20px)",
+    "textExtraLarge": "చాలా పెద్దది (24px)",
+    "highContrast": "హై కాంట్రాస్ట్ మోడ్",
+    "notifications": "మందుల రిమైండర్ నోటిఫికేషన్లు",
+    "testNotification": "టెస్ట్ నోటిఫికేషన్ పంపండి",
+    "dataPrivacy": "డేటా గోప్యత & భద్రత (DPDP చట్టం)",
+    "exportData": "నా ఆరోగ్య రికార్డులను డౌన్‌లోడ్ చేయండి",
+    "deleteAccount": "ఖాతాను శాశ్వతంగా తొలగించండి"
+  }
+}

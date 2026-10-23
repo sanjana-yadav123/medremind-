@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <rect width="192" height="192" rx="36" fill="#15803d"/>
+  <circle cx="96" cy="96" r="68" fill="#ffffff" fill-opacity="0.15"/>
+  <!-- Pill representation -->
+  <g transform="translate(96,96) rotate(-35) translate(-96,-96)">
+    <rect x="66" y="56" width="60" height="80" rx="30" fill="#ffffff"/>
+    <path d="M66 96 h60 v10 a30 30 0 0 1 -60 0 z" fill="#22c55e"/>
+    <line x1="66" y1="96" x2="126" y2="96" stroke="#15803d" stroke-width="3"/>
+  </g>
+  <!-- Red Cross badge -->
+  <g transform="translate(125, 45)">
+    <circle cx="15" cy="15" r="18" fill="#ffffff"/>
+    <rect x="12" y="5" width="6" height="20" rx="2" fill="#dc2626"/>
+    <rect x="5" y="12" width="20" height="6" rx="2" fill="#dc2626"/>
+  </g>
+</svg>

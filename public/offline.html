@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ऑफ़लाइन मोड (Offline Mode) - MedRemind</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      margin: 0;
+      padding: 24px;
+      background-color: #f8fafc;
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .card {
+      background: #ffffff;
+      border: 3px solid #cbd5e1;
+      border-radius: 20px;
+      padding: 32px 24px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .icon {
+      font-size: 56px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 26px;
+      color: #b45309;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+    p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: #334155;
+    }
+    .retry-btn {
+      background-color: #15803d;
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      min-height: 56px;
+      width: 100%;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .retry-btn:hover, .retry-btn:focus {
+      background-color: #166534;
+      outline: 3px solid #22c55e;
+    }
+    .badge {
+      display: inline-block;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">ऑफ़लाइन सूचना (No Internet)</div>
+    <div class="icon" aria-hidden="true">📶❌</div>
+    <h1>इंटरनेट कनेक्शन बंद है</h1>
+    <p>
+      चिंता न करें! MedRemind में आपकी पहले से सहेजी गई दवाइयाँ सुरक्षित हैं। जब आपका इंटरनेट पुनः चालू होगा, ली गई दवाओं की जानकारी स्वचालित रूप से सिंक हो जाएगी।
+    </p>
+    <button class="retry-btn" onclick="window.location.reload()">
+      🔄 पुनः प्रयास करें (Refresh)
+    </button>
+  </div>
+</body>
+</html>

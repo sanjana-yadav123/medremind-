@@ -1,0 +1,71 @@
+{
+  "app": {
+    "name": "MedRemind",
+    "tagline": "বাংলায় বয়স্কদের ওষুধ ও স্বাস্থ্য সহায়ক",
+    "disclaimer": "এটি ওষুধ ব্যবস্থাপনা সহায়ক, কোনো জরুরি চিকিৎসা পরিষেবা নয়।"
+  },
+  "nav": {
+    "dashboard": "আজকের ওষুধ",
+    "medicines": "আমার ওষুধ",
+    "history": "ইতিহাস",
+    "prescriptions": "প্রেসক্রিপশন",
+    "caregivers": "তত্ত্বাবধায়ক",
+    "emergency": "জরুরি (SOS)",
+    "settings": "সেটিংস",
+    "logout": "লগআউট"
+  },
+  "dashboard": {
+    "greetingMorning": "শুভ সকাল",
+    "greetingAfternoon": "শুভ দুপুর",
+    "greetingEvening": "শুভ সন্ধ্যা",
+    "greetingNight": "শুভ রাত্রি",
+    "todayIs": "আজকের দিন",
+    "nextDose": "পরবর্তী নির্ধারিত ওষুধ",
+    "noNextDose": "আজকের জন্য আর কোনো ওষুধ বাকি নেই। শাবাশ!",
+    "scheduledAt": "নির্ধারিত সময়",
+    "takeDose": "ওষুধ খেয়েছি",
+    "snoozeDose": "পরে মনে করিয়ে দিন",
+    "missDose": "ওষুধ বাদ গেছে",
+    "confirmSuccess": "ওষুধ খাওয়ার তথ্য সফলভাবে সংরক্ষিত হয়েছে!",
+    "snoozeSuccess": "১৫ মিনিট পরে আবার মনে করিয়ে দেওয়া হবে।",
+    "missSuccess": "ওষুধ বাদ গেছে রেকর্ড হয়েছে। ডাক্তারের পরামর্শ ছাড়া দ্বিগুণ ডোজ খাবেন না।",
+    "timelineTitle": "আজকের সম্পূর্ণ সময়সূচি",
+    "asNeededTitle": "প্রয়োজনে খাওয়ার ওষুধ (PRN)",
+    "statusTaken": "খাওয়া হয়েছে",
+    "statusScheduled": "বাকি আছে",
+    "statusSkipped": "বাদ দেওয়া হয়েছে",
+    "statusMissed": "ছুটে গেছে",
+    "caregiverStatus": "তত্ত্বাবধায়কের অবস্থা",
+    "emergencyStatus": "জরুরি যোগাযোগ",
+    "offlineNotice": "অফলাইন - তথ্য ফোনে সংরক্ষিত হচ্ছে",
+    "voiceButton": "কথা বলে জানুন",
+    "viewPrescriptions": "প্রেসক্রিপশন দেখুন"
+  },
+  "emergency": {
+    "title": "জরুরি সহায়তা (Emergency SOS)",
+    "subtitle": "বিপদের সময় অবিলম্বে যোগাযোগ করুন",
+    "sosButton": "জরুরি কল (SOS Call)",
+    "sosConfirmTitle": "আপনি কি জরুরি নম্বরে কল করতে চান?",
+    "sosConfirmDesc": "এটি আপনার ফোনের ডায়ালার খুলবে। কল করতে ডায়ালারে সবুজ বোতাম চাপুন।",
+    "callNow": "হ্যাঁ, এখনই কল করুন",
+    "cancel": "না, বাতিল করুন",
+    "primaryContact": "প্রধান যোগাযোগ",
+    "caregiverContact": "তত্ত্বাবধায়ককে কল",
+    "addContact": "নতুন জরুরি যোগাযোগ যোগ করুন",
+    "disclaimer": "সতর্কতা: এটি ১০৮/১১২ সরকারি জরুরি অ্যাম্বুলেন্স পরিষেবার বিকল্প নয়।"
+  },
+  "settings": {
+    "title": "অ্যাপ সেটিংস ও গোপনীয়তা",
+    "language": "ভাষা (Language)",
+    "textSize": "অক্ষরের আকার (Text Size)",
+    "textNormal": "স্বাভাবিক",
+    "textLarge": "বড় (20px)",
+    "textExtraLarge": "খুব বড় (24px)",
+    "highContrast": "উচ্চ কনট্রাস্ট মোড (High Contrast)",
+    "notifications": "ওষুধ রিমাইন্ডার নোটিফিকেশন",
+    "testNotification": "টেস্ট নোটিফিকেশন পাঠান",
+    "dataPrivacy": "ডেটা গোপনীয়তা ও সুরক্ষা (DPDP Act)",
+    "exportData": "আমার স্বাস্থ্য ডেটা ডাউনলোড করুন",
+    "deleteAccount": "অ্যাকাউন্ট এবং সমস্ত ডেটা মুছুন"
+  }
+}

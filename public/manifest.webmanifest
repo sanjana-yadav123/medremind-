@@ -1,0 +1,28 @@
+{
+  "name": "MedRemind - वरिष्ठ स्वास्थ्य एवं दवा सहायक",
+  "short_name": "MedRemind",
+  "description": "बुजुर्गों के लिए सरल, हिंदी-प्रथम दवा समय सारणी एवं देखभाल सहायक ऐप",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#15803d",
+  "lang": "hi",
+  "dir": "ltr",
+  "categories": ["medical", "health", "lifestyle"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "app": {
+    "name": "MedRemind",
+    "tagline": "ज्येष्ठ नागरिकांसाठी सोपा आणि सुरक्षित औषध व आरोग्य सहाय्यक",
+    "disclaimer": "हे केवळ औषध व्यवस्थापन साधन आहे, कोणतीही आपत्कालीन रुग्णवाहिका सेवा नाही."
+  },
+  "nav": {
+    "dashboard": "आजची औषधे",
+    "medicines": "माझी औषधे",
+    "history": "इतिहास",
+    "prescriptions": "प्रिस्क्रिप्शन",
+    "caregivers": "काळजीवाहक",
+    "emergency": "आपत्कालीन (SOS)",
+    "settings": "सेटिंग्ज",
+    "logout": "बाहेर पडा"
+  },
+  "dashboard": {
+    "greetingMorning": "शुभ प्रभात",
+    "greetingAfternoon": "शुभ दुपार",
+    "greetingEvening": "शुभ संध्याकाळ",
+    "greetingNight": "शुभ रात्री",
+    "todayIs": "आजचा वार व दिनांक",
+    "nextDose": "पुढील वेळेचे औषध",
+    "noNextDose": "आजसाठी कोणतीही औषधे शिल्लक नाहीत. उत्तम!",
+    "scheduledAt": "ठरलेली वेळ",
+    "takeDose": "औषध घेतले",
+    "snoozeDose": "नंतर आठवण करा",
+    "missDose": "औषध चुकले",
+    "confirmSuccess": "औषध घेतल्याची नोंद यशस्वीरीत्या झाली!",
+    "snoozeSuccess": "१५ मिनिटांनंतर पुन्हा आठवण करून दिली जाईल.",
+    "missSuccess": "चुकलेल्या औषधाची नोंद झाली. डॉक्टरांच्या सल्ल्याशिवाय दुप्पट डोस घेऊ नका.",
+    "timelineTitle": "आजचे संपूर्ण वेळापत्रक",
+    "asNeededTitle": "गरज असल्यास घ्यायची औषधे (PRN)",
+    "statusTaken": "घेतले",
+    "statusScheduled": "बाकी आहे",
+    "statusSkipped": "वगळले",
+    "statusMissed": "चुकले",
+    "caregiverStatus": "काळजीवाहक स्थिती",
+    "emergencyStatus": "आपत्कालीन संपर्क",
+    "offlineNotice": "ऑफलाइन - माहिती फोनमध्ये सेव्ह होत आहे",
+    "voiceButton": "बोलून विचारा",
+    "viewPrescriptions": "प्रिस्क्रिप्शन पहा"
+  },
+  "emergency": {
+    "title": "आपत्कालीन मदत (Emergency SOS)",
+    "subtitle": "संकटाच्या वेळी त्वरित संपर्क करा",
+    "sosButton": "आपत्कालीन कॉल (SOS Call)",
+    "sosConfirmTitle": "तुम्ही आपत्कालीन संपर्काला कॉल करू इच्छिता?",
+    "sosConfirmDesc": "हे बटण तुमच्या फोनचा डायलर उघडेल. कॉल करण्यासाठी हिरवे बटण दाबा.",
+    "callNow": "होय, आता कॉल करा",
+    "cancel": "रद्द करा",
+    "primaryContact": "मुख्य संपर्क",
+    "caregiverContact": "काळजीवाहकाला कॉल",
+    "addContact": "नवीन संपर्क जोडा",
+    "disclaimer": "सूचना: हे १०८/११२ सरकारी आपत्कालीन सेवेचा पर्याय नाही."
+  },
+  "settings": {
+    "title": "अ‍ॅप सेटिंग्ज आणि गोपनीयता",
+    "language": "भाषा (Language)",
+    "textSize": "अक्षरांचा आकार (Text Size)",
+    "textNormal": "सामान्य",
+    "textLarge": "मोठा (20px)",
+    "textExtraLarge": "खूप मोठा (24px)",
+    "highContrast": "उच्च कॉन्ट्रास्ट मोड",
+    "notifications": "औषध आठवण सूचना",
+    "testNotification": "चाचणी सूचना पाठवा",
+    "dataPrivacy": "डेटा गोपनीयता व सुरक्षा (DPDP कायदा)",
+    "exportData": "आरोग्य डेटा डाउनलोड करा",
+    "deleteAccount": "खाते आणि डेटा कायमचा हटवा"
+  }
+}

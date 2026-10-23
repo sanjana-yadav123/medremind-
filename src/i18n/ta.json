@@ -1,0 +1,71 @@
+{
+  "app": {
+    "name": "MedRemind",
+    "tagline": "முதியோருக்கான எளிய மற்றும் பாதுகாப்பான மருந்து உதவியாளர்",
+    "disclaimer": "இது ஒரு மருந்து நினைவூட்டல் மட்டுமே, அவசர மருத்துவ சிகிச்சை அல்ல."
+  },
+  "nav": {
+    "dashboard": "இன்றைய மருந்துகள்",
+    "medicines": "என் மருந்துகள்",
+    "history": "வரலாறு",
+    "prescriptions": "மருந்து சீட்டு",
+    "caregivers": "பராமரிப்பாளர்",
+    "emergency": "அவசரம் (SOS)",
+    "settings": "அமைப்புகள்",
+    "logout": "வெளியேறு"
+  },
+  "dashboard": {
+    "greetingMorning": "காலை வணக்கம்",
+    "greetingAfternoon": "மதிய வணக்கம்",
+    "greetingEvening": "மாலை வணக்கம்",
+    "greetingNight": "இரவு வணக்கம்",
+    "todayIs": "இன்று",
+    "nextDose": "அடுத்த மருந்து நேரம்",
+    "noNextDose": "இன்றைய மருந்துகள் முடிந்தது. நன்று!",
+    "scheduledAt": "குறிக்கப்பட்ட நேரம்",
+    "takeDose": "மருந்து எடுத்தேன்",
+    "snoozeDose": "பின்னர் நினைவூட்டு",
+    "missDose": "மருந்து தவறியது",
+    "confirmSuccess": "மருந்து உட்கொண்டது வெற்றிகரமாகப் பதிவானது!",
+    "snoozeSuccess": "15 நிமிடங்களுக்குப் பிறகு நினைவூட்டப்படும்.",
+    "missSuccess": "மருந்து தவறியது பதிவானது. மருத்துவர் ஆலோசனையின்றி இரட்டிப்பு மருந்து எடுக்க வேண்டாம்.",
+    "timelineTitle": "இன்றைய முழு அட்டவணை",
+    "asNeededTitle": "தேவைப்படும்போது எடுக்கும் மருந்து (PRN)",
+    "statusTaken": "எடுத்தாயிற்று",
+    "statusScheduled": "மீதமுள்ளது",
+    "statusSkipped": "தவிர்த்தது",
+    "statusMissed": "தவறியது",
+    "caregiverStatus": "பராமரிப்பாளர் நிலை",
+    "emergencyStatus": "அவசர தொடர்பு",
+    "offlineNotice": "ஆஃப்லைன் - போனில் சேமிக்கப்படுகிறது",
+    "voiceButton": "பேசி அறியவும்",
+    "viewPrescriptions": "மருந்து சீட்டு பார்க்க"
+  },
+  "emergency": {
+    "title": "அவசர உதவி (Emergency SOS)",
+    "subtitle": "அவசர காலத்தில் உடனே தொடர்பு கொள்ளவும்",
+    "sosButton": "அவசர அழைப்பு (SOS Call)",
+    "sosConfirmTitle": "அவசர தொடர்பை அழைக்க விரும்புகிறீர்களா?",
+    "sosConfirmDesc": "இது உங்கள் போன் டயலரைத் திறக்கும்.",
+    "callNow": "ஆம், உடனே அழைக்கவும்",
+    "cancel": "ரத்து செய்",
+    "primaryContact": "முதன்மை தொடர்பு",
+    "caregiverContact": "பராமரிப்பாளரை அழைக்க",
+    "addContact": "புதிய அவசர தொடர்பு சேர்க்க",
+    "disclaimer": "எச்சரிக்கை: இது 108/112 அரசு அவசர சிகிச்சை ஊர்தி சேவைக்கு மாற்றாகாது."
+  },
+  "settings": {
+    "title": "அமைப்புகள் & தனியுரிமை",
+    "language": "மொழி (Language)",
+    "textSize": "எழுத்து அளவு (Text Size)",
+    "textNormal": "இயல்பான",
+    "textLarge": "பெரியது (20px)",
+    "textExtraLarge": "மிகப் பெரியது (24px)",
+    "highContrast": "உயர் மாறுபாடு பயன்முறை",
+    "notifications": "மருந்து நினைவூட்டல் அறிவிப்புகள்",
+    "testNotification": "சோதனை அறிவிப்பை அனுப்பு",
+    "dataPrivacy": "தரவு தனியுரிமை (DPDP சட்டம்)",
+    "exportData": "என் மருத்துவ தரவை பதிவிறக்கு",
+    "deleteAccount": "கணக்கை நிரந்தரமாக நீக்கு"
+  }
+}

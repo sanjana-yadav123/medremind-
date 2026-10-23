@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-base-size: 20px;
+}
+
+/* Attractive, serene, soothing healthcare background */
+body {
+  font-size: var(--font-base-size);
+  line-height: 1.6;
+  color: #0f172a;
+  background: radial-gradient(circle at 15% 15%, #ecfdf5 0%, #f0fdf4 35%, #fafaf9 70%, #f5f3ff 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body {
+  background: radial-gradient(circle at 20% 20%, #062419 0%, #091319 50%, #030712 100%);
+  background-attachment: fixed;
+  color: #f1f5f9;
+}
+
+/* Modern Soft Glassmorphic Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 25px -5px rgba(22, 101, 52, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+}
+
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 2px solid rgba(51, 65, 85, 0.7);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+/* Hero Next Dose Highlight Card */
+.hero-glass-card {
+  background: linear-gradient(135deg, rgba(240, 253, 244, 0.95) 0%, rgba(220, 252, 231, 0.9) 100%);
+  backdrop-filter: blur(14px);
+  border: 3px solid #16a34a;
+  box-shadow: 0 20px 35px -10px rgba(21, 128, 61, 0.18);
+}
+
+.dark .hero-glass-card {
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.45) 0%, rgba(6, 95, 70, 0.3) 100%);
+  border: 3px solid #22c55e;
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Elderly High-Contrast Mode */
+.contrast-more {
+  --tw-border-opacity: 1 !important;
+  color: #000000 !important;
+  background: #ffffff !important;
+}
+
+.contrast-more a,
+.contrast-more button {
+  border-width: 3px !important;
+  outline-color: #000000 !important;
+}
+
+/* Visible accessible focus indicators */
+*:focus-visible {
+  outline: 3px solid #15803d !important;
+  outline-offset: 3px !important;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Safe area padding for mobile notches */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
