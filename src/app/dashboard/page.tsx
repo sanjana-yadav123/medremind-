@@ -148,7 +148,7 @@ export default function DashboardPage() {
       actionType,
       nextDose?.medicineId || 'med',
       new Date().toISOString(),
-      actionType === 'take' ? 'समय पर ली गई' : 'छूट गई'
+      actionType === 'take' ? t('dashboard.actionTakenNote') : t('dashboard.actionMissedNote')
     );
 
     loadData();
@@ -189,10 +189,10 @@ export default function DashboardPage() {
           <button
             onClick={handleTestAlarm}
             className="px-3.5 py-2.5 bg-gradient-to-r from-red-600 to-amber-600 text-white font-extrabold text-base rounded-2xl flex items-center gap-2 shadow-sm hover:scale-105 transition-all"
-            title="अलार्म की ध्वनि का परीक्षण करें"
+            title={t('dashboard.alarmTest')}
           >
             <BellRing className="w-5 h-5 animate-bounce" />
-            <span>अलार्म टेस्ट</span>
+            <span>{t('dashboard.alarmTest')}</span>
           </button>
 
           {/* Voice Assistant Button */}
@@ -231,7 +231,7 @@ export default function DashboardPage() {
                   {nextMedicine.name}
                 </h3>
                 <p className="text-2xl font-bold text-slate-800 dark:text-slate-200">
-                  खुराक: {nextMedicine.prescribed_dose} • {nextMedicine.route === 'drops' ? 'ड्रॉप्स' : nextMedicine.route === 'syrup' ? 'सिरप' : 'गोली'}
+                  {t('dashboard.doseAmount')}: {nextMedicine.prescribed_dose} • {nextMedicine.route === 'drops' ? t('dashboard.drops') : nextMedicine.route === 'syrup' ? t('dashboard.syrup') : t('dashboard.tablet')}
                 </p>
               </div>
 
@@ -334,9 +334,9 @@ export default function DashboardPage() {
                         size="normal"
                         onClick={() => handleAction(dose.doseEventId, 'take')}
                         className="rounded-xl shadow-xs"
-                        aria-label={`${med.name} ले ली`}
+                        aria-label={`${med.name} ${t('dashboard.takeDose')}`}
                       >
-                        दवा ली
+                        {t('dashboard.takeDose')}
                       </Button>
                     )}
                   </div>

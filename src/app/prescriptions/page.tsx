@@ -203,7 +203,7 @@ export default function PrescriptionsPage() {
             icon={isScanning ? <ScanLine className="w-7 h-7 animate-spin" /> : <Sparkles className="w-7 h-7" />}
             className="text-2xl shadow-xl"
           >
-            {isScanning ? t('prescriptions.scanning') : '🔍 AI पर्चा पढ़ें और दवा पहचानें'}
+            {isScanning ? t('prescriptions.scanning') : `AI OCR - ${t('prescriptions.title')}`}
           </Button>
         )}
       </Card>
@@ -292,7 +292,7 @@ export default function PrescriptionsPage() {
                       value={med.candidate_name}
                       onChange={(e) => handleFieldChange(index, 'candidate_name', e.target.value)}
                       className="w-full p-3 text-xl font-black rounded-xl border-2 border-slate-300 dark:border-slate-700 dark:bg-slate-800"
-                      placeholder="दवा का नाम"
+                      placeholder={t('medicines.medicineName')}
                     />
                     <div className="grid grid-cols-2 gap-2">
                       <input
@@ -300,14 +300,14 @@ export default function PrescriptionsPage() {
                         value={med.candidate_strength || ''}
                         onChange={(e) => handleFieldChange(index, 'candidate_strength', e.target.value)}
                         className="p-3 text-lg font-bold rounded-xl border-2 border-slate-300 dark:border-slate-700 dark:bg-slate-800"
-                        placeholder="खुराक (उदा. 5mg)"
+                        placeholder={t('medicines.prescribedDose')}
                       />
                       <input
                         type="text"
                         value={med.candidate_instructions || ''}
                         onChange={(e) => handleFieldChange(index, 'candidate_instructions', e.target.value)}
                         className="p-3 text-lg font-bold rounded-xl border-2 border-slate-300 dark:border-slate-700 dark:bg-slate-800"
-                        placeholder="निर्देश"
+                        placeholder={t('medicines.instructions')}
                       />
                     </div>
                   </div>

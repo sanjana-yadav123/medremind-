@@ -12,7 +12,6 @@ import {
   Type,
   Contrast,
   Download,
-  Trash2,
   ShieldCheck,
   CheckCircle2,
   AlertTriangle,
@@ -75,17 +74,17 @@ export default function SettingsPage() {
       downloadAnchor.click();
       downloadAnchor.remove();
 
-      setNotice('आपका संपूर्ण स्वास्थ्य डेटा सफलतापूर्वक डाउनलोड हो गया!');
+      setNotice(t('settings.exportData'));
       setTimeout(() => setNotice(null), 4000);
     } catch {
-      alert('डेटा डाउनलोड करने में समस्या आई।');
+      alert('Error downloading health records.');
     }
   };
 
   const handleResetData = () => {
     LocalDatabase.resetDatabase();
     setIsDeleteModalOpen(false);
-    setNotice('डेटाबेस सफलतापूर्वक रीसेट कर दिया गया।');
+    setNotice(t('settings.deleteAccount'));
     setTimeout(() => {
       window.location.href = '/dashboard';
     }, 1500);
@@ -101,7 +100,7 @@ export default function SettingsPage() {
           <span>{t('settings.title')}</span>
         </h1>
         <p className="text-xl text-slate-600 dark:text-slate-400 mt-1 font-semibold">
-          स्थानीय डेटाबेस, अलार्म ध्वनि एवं 7 क्षेत्रीय भाषाएँ
+          {t('app.tagline')}
         </p>
       </div>
 
@@ -116,7 +115,7 @@ export default function SettingsPage() {
       <Card className="glass-card p-5 space-y-4 rounded-3xl">
         <h3 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
           <Globe className="w-6 h-6 text-emerald-700" />
-          <span>{t('settings.language')} (7 भारतीय भाषाएँ)</span>
+          <span>{t('settings.language')} (7 Languages)</span>
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {SUPPORTED_LANGUAGES.map((lang) => (
@@ -140,14 +139,14 @@ export default function SettingsPage() {
         <div className="flex items-center justify-between">
           <h3 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <BellRing className="w-6 h-6 text-red-600 animate-bounce" />
-            <span>दवा अलार्म सिस्टम (Real In-Browser Alarm)</span>
+            <span>{t('settings.alarmSection')}</span>
           </h3>
           <span className="text-xs font-bold px-2.5 py-1 bg-red-100 text-red-900 rounded-full border border-red-400">
-            सक्रिय (Active)
+            {t('settings.alarmActive')}
           </span>
         </div>
         <p className="text-base text-slate-600 dark:text-slate-400 font-medium">
-          दवा का समय होने पर तेज़ अलर्ट साउंड बजता है और वाइब्रेशन होती है। इसे आप अभी सुनकर टेस्ट कर सकते हैं।
+          {t('settings.alarmDesc')}
         </p>
         <Button
           variant="danger"
@@ -156,7 +155,7 @@ export default function SettingsPage() {
           onClick={handleTestAlarm}
           className="w-full text-xl rounded-2xl shadow-md"
         >
-          🔊 अलार्म का परीक्षण करें (Test Alarm Ring)
+          {t('settings.testAlarmButton')}
         </Button>
       </Card>
 
@@ -192,7 +191,7 @@ export default function SettingsPage() {
               <Contrast className="w-5 h-5" />
               <span>{t('settings.highContrast')}</span>
             </h4>
-            <p className="text-base text-slate-500 font-medium">कम रोशनी में पढ़ने में सुलभ</p>
+            <p className="text-base text-slate-500 font-medium">{t('common.contrastToggleDesc')}</p>
           </div>
           <button
             onClick={handleContrastToggle}
@@ -202,7 +201,7 @@ export default function SettingsPage() {
                 : 'bg-slate-200 text-slate-800 border-slate-400'
             }`}
           >
-            {isHighContrast ? 'चालू (ON)' : 'बंद (OFF)'}
+            {isHighContrast ? 'ON' : 'OFF'}
           </button>
         </div>
       </Card>
@@ -211,10 +210,10 @@ export default function SettingsPage() {
       <Card className="glass-card p-5 space-y-4 rounded-3xl">
         <h3 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
           <ShieldCheck className="w-6 h-6 text-emerald-700" />
-          <span>स्थानीय डेटाबेस एवं गोपनीयता (Zero Cloud Required)</span>
+          <span>{t('settings.dataPrivacy')}</span>
         </h3>
         <p className="text-base text-slate-600 dark:text-slate-400 font-medium">
-          आपका पूरा स्वास्थ्य डेटा 100% आपके अपने कंप्यूटर/ब्राउज़र में स्थानीय रूप से सुरक्षित है। किसी भी बाहरी सर्वर या क्लाउड की आवश्यकता नहीं है।
+          {t('app.disclaimer')}
         </p>
 
         <div className="space-y-3 pt-2">
@@ -225,7 +224,7 @@ export default function SettingsPage() {
             onClick={handleExportData}
             className="w-full text-xl rounded-2xl shadow-xs"
           >
-            {t('settings.exportData')} (JSON)
+            {t('settings.exportData')}
           </Button>
 
           <Button
@@ -235,7 +234,7 @@ export default function SettingsPage() {
             onClick={() => setIsDeleteModalOpen(true)}
             className="w-full text-xl text-red-700 border-red-300 rounded-2xl"
           >
-            डेटा रीसेट करें (Reset Local Database)
+            {t('settings.deleteAccount')}
           </Button>
         </div>
       </Card>
@@ -244,13 +243,13 @@ export default function SettingsPage() {
       <Modal
         isOpen={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}
-        title="डेटा रीसेट की पुष्टि"
+        title={t('settings.deleteAccount')}
       >
         <div className="space-y-4 text-center">
           <div className="p-4 bg-red-100 rounded-2xl border-2 border-red-600 flex items-start gap-3 text-left">
             <AlertTriangle className="w-8 h-8 text-red-700 shrink-0 mt-0.5" />
             <p className="text-base font-bold text-red-950">
-              क्या आप स्थानीय डेटाबेस को रीसेट करके मूल डिफ़ॉल्ट दवाओं को पुनर्स्थापित करना चाहते हैं?
+              {t('settings.deleteAccount')}?
             </p>
           </div>
           <div className="flex gap-3">
@@ -260,7 +259,7 @@ export default function SettingsPage() {
               onClick={handleResetData}
               className="flex-1 text-xl rounded-2xl"
             >
-              हाँ, रीसेट करें
+              {t('medicines.save')}
             </Button>
             <Button
               variant="secondary"
@@ -268,7 +267,7 @@ export default function SettingsPage() {
               onClick={() => setIsDeleteModalOpen(false)}
               className="flex-1 text-xl rounded-2xl"
             >
-              रद्द करें
+              {t('medicines.cancel')}
             </Button>
           </div>
         </div>

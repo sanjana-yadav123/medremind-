@@ -11,7 +11,7 @@ import { DoseEvent, DoseStatus } from '@/lib/types/database';
 import { LocalDatabase } from '@/lib/offline/local-database';
 
 export default function HistoryPage() {
-  const { t } = useTranslation();
+  const { t, currentLanguage } = useTranslation();
   const [events, setEvents] = useState<any[]>([]);
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [correctionTarget, setCorrectionTarget] = useState<any | null>(null);
@@ -174,7 +174,7 @@ export default function HistoryPage() {
         {filtered.length > 0 ? (
           filtered.map((ev) => {
             const dateObj = new Date(ev.scheduled_for);
-            const dateFormatted = dateObj.toLocaleDateString('hi-IN', {
+            const dateFormatted = dateObj.toLocaleDateString(currentLanguage.voiceLang, {
               day: 'numeric',
               month: 'short',
               hour: '2-digit',

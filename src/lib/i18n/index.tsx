@@ -61,6 +61,9 @@ export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setLocaleState(newLocale);
     localStorage.setItem('medremind_locale', newLocale);
     document.documentElement.lang = newLocale;
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('medremind_language_changed', { detail: { locale: newLocale } }));
+    }
   };
 
   const currentLanguage =

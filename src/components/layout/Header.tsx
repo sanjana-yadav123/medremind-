@@ -7,7 +7,7 @@ import { PhoneCall, Contrast, Globe, Settings as SettingsIcon, Check, ChevronDow
 import { Modal } from '@/components/ui/Modal';
 
 export const Header: React.FC = () => {
-  const { locale, setLocale, currentLanguage } = useTranslation();
+  const { locale, setLocale, currentLanguage, t } = useTranslation();
   const [isHighContrast, setIsHighContrast] = useState(false);
   const [isLangModalOpen, setIsLangModalOpen] = useState(false);
 
@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
           <Link
             href="/dashboard"
             className="flex items-center gap-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-2xl group"
-            aria-label="MedRemind होमपेज पर जाएँ"
+            aria-label="MedRemind"
           >
             <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-700 to-emerald-500 flex items-center justify-center text-white text-2xl shadow-md group-hover:scale-105 transition-transform">
               💊
@@ -61,7 +61,7 @@ export const Header: React.FC = () => {
             <Link
               href="/emergency"
               className="flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-700 hover:to-rose-800 text-white font-extrabold text-base sm:text-lg rounded-2xl shadow-sm min-h-[48px] focus:ring-4 focus:ring-red-400 active:scale-95 transition-all"
-              aria-label="आपातकालीन संपर्क (Emergency SOS)"
+              aria-label={t('emergency.title')}
             >
               <PhoneCall className="w-5 h-5 shrink-0 animate-pulse" aria-hidden="true" />
               <span>SOS</span>
@@ -71,8 +71,8 @@ export const Header: React.FC = () => {
             <button
               onClick={() => setIsLangModalOpen(true)}
               className="px-3 py-2 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-slate-100 border-2 border-emerald-200 dark:border-slate-700 font-bold text-base sm:text-lg rounded-2xl min-h-[48px] flex items-center gap-1.5 hover:bg-emerald-50 focus:ring-2 focus:ring-brand-500 transition-colors shadow-xs"
-              aria-label="भाषा चुनें (Select Language)"
-              title="भाषा चुनें"
+              aria-label={t('common.chooseLanguageTitle')}
+              title={t('common.chooseLanguageTitle')}
             >
               <Globe className="w-5 h-5 text-emerald-700 dark:text-emerald-400" aria-hidden="true" />
               <span>{currentLanguage.nativeLabel}</span>
@@ -87,8 +87,8 @@ export const Header: React.FC = () => {
                   ? 'bg-amber-400 text-black border-black font-bold'
                   : 'bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-700 hover:bg-slate-100'
               }`}
-              aria-label="कंट्रास्ट बदलें (Toggle High Contrast)"
-              title="कंट्रास्ट बदलें"
+              aria-label={t('common.contrastToggleTitle')}
+              title={t('common.contrastToggleTitle')}
             >
               <Contrast className="w-5 h-5" />
             </button>
@@ -97,7 +97,7 @@ export const Header: React.FC = () => {
             <Link
               href="/settings"
               className="p-2.5 rounded-2xl bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 border-2 border-slate-300 dark:border-slate-700 min-h-[48px] min-w-[48px] flex items-center justify-center hover:bg-slate-100 focus:ring-2 focus:ring-brand-500 shadow-xs"
-              aria-label="सेटिंग्स (Settings)"
+              aria-label={t('settings.title')}
             >
               <SettingsIcon className="w-5 h-5" />
             </Link>
@@ -109,11 +109,11 @@ export const Header: React.FC = () => {
       <Modal
         isOpen={isLangModalOpen}
         onClose={() => setIsLangModalOpen(false)}
-        title="अपनी भाषा चुनें (Choose Your Language)"
+        title={t('common.chooseLanguageTitle')}
       >
         <div className="space-y-3 py-2">
           <p className="text-lg text-slate-600 dark:text-slate-400">
-            आप ऐप और आवाज़ सहायक के लिए अपनी पसंदीदा भाषा चुन सकते हैं:
+            {t('common.chooseLanguageDesc')}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">

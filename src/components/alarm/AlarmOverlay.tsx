@@ -4,9 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { AlarmService, ActiveAlarm } from '@/lib/alarm/alarm-service';
 import { LocalDatabase } from '@/lib/offline/local-database';
 import { Button } from '@/components/ui/Button';
-import { Bell, Check, Clock, Volume2, ShieldAlert } from 'lucide-react';
+import { Bell, Check, Clock } from 'lucide-react';
+import { useTranslation } from '@/lib/i18n';
 
 export const AlarmOverlay: React.FC = () => {
+  const { t } = useTranslation();
   const [activeAlarm, setActiveAlarm] = useState<ActiveAlarm | null>(null);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export const AlarmOverlay: React.FC = () => {
         'take',
         'unknown',
         new Date().toISOString(),
-        'अलार्म से पुष्टि की गई'
+        t('dashboard.actionTakenNote')
       );
     }
     AlarmService.dismissAlarm();
@@ -56,20 +58,20 @@ export const AlarmOverlay: React.FC = () => {
 
         <div className="space-y-2">
           <span className="inline-block px-4 py-1.5 bg-red-100 text-red-950 dark:bg-red-950 dark:text-red-200 font-black text-xl rounded-full border border-red-500">
-            ⏰ दवा का समय हो गया है!
+            {t('alarm.alertTitle')}
           </span>
           <h2 id="alarm-title" className="text-3xl sm:text-4xl font-black text-slate-950 dark:text-white pt-1">
             {activeAlarm.medicineName}
           </h2>
           <p className="text-2xl font-bold text-slate-800 dark:text-slate-200">
-            खुराक: {activeAlarm.dose}
+            {t('alarm.doseLabel')}: {activeAlarm.dose}
           </p>
         </div>
 
         {/* Doctor's exact instructions */}
         <div className="p-4 bg-emerald-50 dark:bg-emerald-950/60 rounded-2xl border-2 border-emerald-400 text-left">
           <span className="text-xs font-bold text-emerald-800 dark:text-emerald-300 uppercase tracking-wider block">
-            डॉक्टर के निर्देश:
+            {t('alarm.doctorInstructions')}
           </span>
           <p className="text-xl font-bold text-emerald-950 dark:text-emerald-100 mt-0.5">
             {activeAlarm.instructions}
@@ -85,7 +87,7 @@ export const AlarmOverlay: React.FC = () => {
             onClick={handleTookMedicine}
             className="w-full text-2xl font-black bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 shadow-xl min-h-[72px]"
           >
-            ✓ दवा ले ली (अलार्म बंद करें)
+            {t('alarm.confirmTaken')}
           </Button>
 
           <Button
@@ -95,13 +97,9 @@ export const AlarmOverlay: React.FC = () => {
             onClick={handleSnooze}
             className="w-full text-xl font-bold rounded-2xl min-h-[56px]"
           >
-            ⏰ 10 मिनट बाद याद दिलाएँ (Snooze)
+            {t('alarm.snooze10')}
           </Button>
         </div>
-
-        <p className="text-sm text-slate-500 dark:text-slate-400 font-semibold">
-          यदि कोई समस्या हो तो तुरंत आपातकालीन संपर्क या डॉक्टर से परामर्श लें।
-        </p>
       </div>
     </div>
   );

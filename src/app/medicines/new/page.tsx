@@ -7,7 +7,7 @@ import { useTranslation } from '@/lib/i18n';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card } from '@/components/ui/Card';
-import { ArrowLeft, Plus, Clock, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Plus, AlertCircle } from 'lucide-react';
 import { MedicineRoute, ScheduleType, LifespanStage } from '@/lib/types/database';
 import { LocalDatabase } from '@/lib/offline/local-database';
 
@@ -59,12 +59,7 @@ export default function NewMedicinePage() {
     setErrorMsg('');
 
     if (!name || !prescribedDose || !instructions) {
-      setErrorMsg('कृपया दवा का नाम, खुराक और डॉक्टर की हिदायत भरें।');
-      return;
-    }
-
-    if (!isPrn && timesOfDay.length === 0) {
-      setErrorMsg('नियमित दवा के लिए कम से कम एक समय निर्धारित करना आवश्यक है।');
+      setErrorMsg(t('medicines.errorRequired'));
       return;
     }
 
@@ -100,7 +95,7 @@ export default function NewMedicinePage() {
 
       router.push('/medicines');
     } catch (err: any) {
-      setErrorMsg(err.message || 'सहेजने में समस्या आई');
+      setErrorMsg(err.message || 'Error saving medicine');
       setIsLoading(false);
     }
   };
@@ -112,7 +107,7 @@ export default function NewMedicinePage() {
         className="inline-flex items-center gap-2 text-emerald-800 dark:text-emerald-400 font-bold text-lg hover:underline"
       >
         <ArrowLeft className="w-5 h-5" />
-        <span>दवाइयों की सूची पर वापस जाएँ</span>
+        <span>{t('medicines.backToList')}</span>
       </Link>
 
       <Card className="glass-card space-y-6 p-6 sm:p-8 rounded-3xl">
@@ -121,7 +116,7 @@ export default function NewMedicinePage() {
             {t('medicines.addNew')}
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400">
-            शिशु से लेकर बुजुर्गों तक किसी भी आयु वर्ग के लिए दवा जोड़ें
+            {t('app.tagline')}
           </p>
         </div>
 
@@ -136,14 +131,14 @@ export default function NewMedicinePage() {
           {/* Lifespan Age Category Selector */}
           <div className="space-y-2">
             <label className="text-xl font-bold text-slate-900 dark:text-slate-100 block">
-              आयु वर्ग (Target Age Group):
+              {t('medicines.targetAgeGroup')}
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {[
-                { id: 'infant', label: '🍼 शिशु (0-2y)' },
-                { id: 'child', label: '🧒 बालक (3-12y)' },
-                { id: 'adult', label: '🧑 वयस्क (13-59y)' },
-                { id: 'senior', label: '🧓 वरिष्ठ (60+y)' },
+                { id: 'infant', label: t('lifespan.infant') },
+                { id: 'child', label: t('lifespan.child') },
+                { id: 'adult', label: t('lifespan.adult') },
+                { id: 'senior', label: t('lifespan.senior') },
               ].map((st) => (
                 <button
                   key={st.id}
@@ -165,7 +160,7 @@ export default function NewMedicinePage() {
             label={t('medicines.medicineName')}
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="जैसे: विटामिन D3 ड्रॉप्स, पैरासिटामोल, एम्लोडिपिन"
+            placeholder="e.g. Amlodipine, Paracetamol, Vitamin D3"
             required
           />
 
@@ -174,7 +169,7 @@ export default function NewMedicinePage() {
               label={t('medicines.prescribedDose')}
               value={prescribedDose}
               onChange={(e) => setPrescribedDose(e.target.value)}
-              placeholder="जैसे: 0.5ml, 5ml सिरप, 500mg, 1 गोली"
+              placeholder="e.g. 500mg, 1 tablet, 5ml"
               required
             />
 
@@ -187,13 +182,13 @@ export default function NewMedicinePage() {
                 onChange={(e) => setRoute(e.target.value as MedicineRoute)}
                 className="min-h-[52px] px-4 py-3 text-xl rounded-2xl border-2 border-slate-300 bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
               >
-                <option value="oral">मुँह से गोली/कैप्सूल (Oral)</option>
-                <option value="drops">ड्रॉप्स / बूँदें (Drops)</option>
-                <option value="syrup">सिरप / पीने की दवा (Syrup)</option>
-                <option value="injection">इंजेक्शन (Injection)</option>
-                <option value="inhalation">इन्हेलर (Inhalation)</option>
-                <option value="topical">त्वचा पर लगाने वाली (Cream)</option>
-                <option value="other">अन्य</option>
+                <option value="oral">{t('medicines.routeOral')}</option>
+                <option value="drops">{t('medicines.routeDrops')}</option>
+                <option value="syrup">{t('medicines.routeSyrup')}</option>
+                <option value="injection">{t('medicines.routeInjection')}</option>
+                <option value="inhalation">{t('medicines.routeInhalation')}</option>
+                <option value="topical">{t('medicines.routeTopical')}</option>
+                <option value="other">{t('medicines.routeOther')}</option>
               </select>
             </div>
           </div>
@@ -205,7 +200,7 @@ export default function NewMedicinePage() {
             <textarea
               value={instructions}
               onChange={(e) => setInstructions(e.target.value)}
-              placeholder="जैसे: सुबह नाश्ते के बाद गुनगुने पानी से / खाली पेट"
+              placeholder={t('medicines.instructionsPlaceholder')}
               rows={3}
               className="px-4 py-3 text-xl rounded-2xl border-2 border-slate-300 bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
               required
@@ -246,7 +241,7 @@ export default function NewMedicinePage() {
                       : 'border-slate-300 bg-white text-slate-700'
                   }`}
                 >
-                  दिन में 1 बार (Once Daily)
+                  {t('medicines.onceDaily')}
                 </button>
                 <button
                   type="button"
@@ -257,14 +252,14 @@ export default function NewMedicinePage() {
                       : 'border-slate-300 bg-white text-slate-700'
                   }`}
                 >
-                  दिन में 2 बार (Morning & Night)
+                  {t('medicines.twiceDaily')}
                 </button>
               </div>
 
               {/* Time pickers */}
               <div className="space-y-2 pt-2">
                 <label className="text-lg font-bold text-slate-800 dark:text-slate-200 block">
-                  अलार्म व दवा का समय (Times of Day):
+                  {t('medicines.customTimes')}:
                 </label>
                 <div className="flex flex-wrap gap-3 items-center">
                   {timesOfDay.map((time, idx) => (
@@ -280,7 +275,7 @@ export default function NewMedicinePage() {
                           type="button"
                           onClick={() => handleRemoveTime(idx)}
                           className="px-2 py-1 text-red-600 font-bold text-xl hover:bg-red-50 rounded-lg min-h-[48px]"
-                          aria-label="समय हटाएँ"
+                          aria-label="Remove time"
                         >
                           ✕
                         </button>
@@ -293,7 +288,7 @@ export default function NewMedicinePage() {
                     className="flex items-center gap-1.5 px-3 py-2 bg-emerald-100 text-emerald-900 font-bold rounded-xl min-h-[48px]"
                   >
                     <Plus className="w-5 h-5" />
-                    <span>और समय जोड़ें</span>
+                    <span>+</span>
                   </button>
                 </div>
               </div>
@@ -324,7 +319,7 @@ export default function NewMedicinePage() {
               disabled={isLoading}
               className="flex-1 rounded-2xl shadow-xl"
             >
-              {isLoading ? 'सहेजा जा रहा है...' : t('medicines.save')}
+              {isLoading ? '...' : t('medicines.save')}
             </Button>
             <Link href="/medicines" className="flex-1">
               <Button type="button" variant="secondary" size="huge" className="w-full rounded-2xl">

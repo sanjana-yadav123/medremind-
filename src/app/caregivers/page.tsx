@@ -132,17 +132,17 @@ export default function CaregiversPage() {
                 <div className="flex flex-wrap gap-2 pt-1 text-sm font-bold text-slate-700 dark:text-slate-300">
                   {cg.permissions.can_view_medicines && (
                     <span className="bg-emerald-50 dark:bg-slate-800 px-3 py-1 rounded-xl border border-emerald-200">
-                      ✓ दवा देखने की अनुमति
+                      ✓ {t('caregivers.permView')}
                     </span>
                   )}
                   {cg.permissions.can_edit_schedules && (
                     <span className="bg-emerald-50 dark:bg-slate-800 px-3 py-1 rounded-xl border border-emerald-200">
-                      ✓ समय बदलने की अनुमति
+                      ✓ {t('caregivers.permEdit')}
                     </span>
                   )}
                   {cg.permissions.can_receive_missed_dose_alerts && (
                     <span className="bg-emerald-50 dark:bg-slate-800 px-3 py-1 rounded-xl border border-emerald-200">
-                      ✓ दवा छूटने पर संदेश
+                      ✓ {t('caregivers.permAlerts')}
                     </span>
                   )}
                 </div>
@@ -191,7 +191,7 @@ export default function CaregiversPage() {
               onClick={handleCopyLink}
               className="w-full text-xl rounded-2xl"
             >
-              {copySuccess ? 'लिंक कॉपी हो गया!' : 'लिंक कॉपी करें (Copy Link)'}
+              {copySuccess ? t('caregivers.copied') : t('caregivers.copyLink')}
             </Button>
           </div>
         ) : (

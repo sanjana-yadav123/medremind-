@@ -158,7 +158,7 @@ export default function EmergencyPage() {
                 className="w-full"
               >
                 <Button variant="danger" size="large" className="w-full text-xl rounded-2xl shadow-sm" icon={<PhoneCall className="w-6 h-6" />}>
-                  कॉल करें ({c.contact_name})
+                  {t('emergency.callNow')} ({c.contact_name})
                 </Button>
               </a>
             </Card>
@@ -181,23 +181,23 @@ export default function EmergencyPage() {
           )}
 
           <Input
-            label="संपर्क व्यक्ति का नाम"
+            label={t('emergency.contactName')}
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="जैसे: अमित शर्मा"
+            placeholder="e.g. Amit Sharma"
             required
           />
 
           <Input
-            label="संबंध (जैसे बेटा, बेटी, माता, डॉक्टर, पड़ोसी)"
+            label={t('emergency.relationship')}
             value={relationship}
             onChange={(e) => setRelationship(e.target.value)}
-            placeholder="जैसे: बेटा"
+            placeholder="e.g. Son, Daughter, Doctor"
             required
           />
 
           <Input
-            label="मोबाइल नंबर"
+            label={t('emergency.phoneNumber')}
             type="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
@@ -212,7 +212,7 @@ export default function EmergencyPage() {
               onChange={(e) => setIsPrimary(e.target.checked)}
               className="w-6 h-6 text-emerald-700 rounded-lg"
             />
-            <span className="text-lg font-bold">इसे मुख्य SOS संपर्क बनाएँ</span>
+            <span className="text-lg font-bold">{t('emergency.primaryContact')}</span>
           </label>
 
           <label className="flex items-start gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-300 cursor-pointer">
@@ -224,12 +224,12 @@ export default function EmergencyPage() {
               required
             />
             <span className="text-base font-bold text-slate-700 dark:text-slate-300">
-              मैं आपात स्थिति में इस संपर्क को कॉल करने और सूचित करने की स्पष्ट सहमति देता/देती हूँ।
+              {t('emergency.consent')}
             </span>
           </label>
 
           <Button type="submit" variant="primary" size="huge" className="w-full rounded-2xl">
-            संपर्क सुरक्षित करें
+            {t('medicines.save')}
           </Button>
         </form>
       </Modal>

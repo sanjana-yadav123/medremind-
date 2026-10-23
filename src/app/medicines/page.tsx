@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { useTranslation } from '@/lib/i18n';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import { Plus, Pill, Search, Archive, Edit, Filter } from 'lucide-react';
-import { Medicine, LifespanStage } from '@/lib/types/database';
+import { Plus, Pill, Search, Edit } from 'lucide-react';
+import { Medicine } from '@/lib/types/database';
 import { LocalDatabase } from '@/lib/offline/local-database';
 
 export default function MedicinesPage() {
@@ -45,7 +45,7 @@ export default function MedicinesPage() {
             <span>{t('medicines.title')}</span>
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 mt-1">
-            शिशु से वरिष्ठ तक सभी दवाइयों की सूची
+            {t('app.tagline')}
           </p>
         </div>
 
@@ -64,11 +64,11 @@ export default function MedicinesPage() {
       {/* Lifespan Age Filter Chips */}
       <div className="flex items-center gap-2 overflow-x-auto pb-1">
         {[
-          { id: 'all', label: 'सभी आयु वर्ग (All)' },
-          { id: 'infant', label: '🍼 शिशु (0-2y)' },
-          { id: 'child', label: '🧒 बालक (3-12y)' },
-          { id: 'adult', label: '🧑 वयस्क (13-59y)' },
-          { id: 'senior', label: '🧓 वरिष्ठ (60+y)' },
+          { id: 'all', label: t('medicines.allStages') },
+          { id: 'infant', label: t('lifespan.infant') },
+          { id: 'child', label: t('lifespan.child') },
+          { id: 'adult', label: t('lifespan.adult') },
+          { id: 'senior', label: t('lifespan.senior') },
         ].map((chip) => (
           <button
             key={chip.id}
@@ -92,7 +92,7 @@ export default function MedicinesPage() {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="दवा का नाम खोजें..."
+            placeholder={t('medicines.searchPlaceholder')}
             className="w-full pl-12 pr-4 py-3 text-xl rounded-2xl border-2 border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 shadow-xs"
           />
         </div>
@@ -137,20 +137,20 @@ export default function MedicinesPage() {
                     </h3>
                     {med.lifespan_target && (
                       <span className="text-xs font-bold bg-emerald-100 text-emerald-950 px-2 py-0.5 rounded-md border border-emerald-400">
-                        {med.lifespan_target === 'infant' ? '🍼 शिशु' : med.lifespan_target === 'child' ? '🧒 बालक' : med.lifespan_target === 'adult' ? '🧑 वयस्क' : '🧓 वरिष्ठ'}
+                        {med.lifespan_target === 'infant' ? t('lifespan.infant') : med.lifespan_target === 'child' ? t('lifespan.child') : med.lifespan_target === 'adult' ? t('lifespan.adult') : t('lifespan.senior')}
                       </span>
                     )}
                     {med.is_prn && (
                       <span className="text-xs font-bold text-amber-900 bg-amber-100 dark:bg-amber-950 dark:text-amber-200 px-2 py-0.5 rounded-md border border-amber-400">
-                        ज़रूरत पर (PRN)
+                        {t('medicines.isPrn')}
                       </span>
                     )}
                   </div>
                   <p className="text-xl font-bold text-slate-700 dark:text-slate-300">
-                    खुराक: {med.prescribed_dose} • {med.route === 'drops' ? 'ड्रॉप्स' : med.route === 'syrup' ? 'सिरप' : 'मुँह से'}
+                    {t('dashboard.doseAmount')}: {med.prescribed_dose} • {med.route === 'drops' ? t('dashboard.drops') : med.route === 'syrup' ? t('dashboard.syrup') : t('dashboard.tablet')}
                   </p>
                   <p className="text-lg text-slate-600 dark:text-slate-400 font-medium">
-                    हिदायत: &ldquo;{med.instructions}&rdquo;
+                    {t('medicines.instructions')}: &ldquo;{med.instructions}&rdquo;
                   </p>
                 </div>
               </div>
@@ -163,7 +163,7 @@ export default function MedicinesPage() {
                     icon={<Edit className="w-5 h-5" />}
                     className="rounded-xl shadow-xs"
                   >
-                    बदलें
+                    {t('medicines.editMedicine')}
                   </Button>
                 </Link>
               </div>
@@ -173,10 +173,10 @@ export default function MedicinesPage() {
           <Card className="glass-card text-center py-10 space-y-3 rounded-3xl">
             <Pill className="w-12 h-12 text-slate-400 mx-auto" />
             <h3 className="text-2xl font-bold text-slate-700 dark:text-slate-300">
-              कोई दवा नहीं मिली
+              {t('medicines.title')}
             </h3>
             <p className="text-lg text-slate-500">
-              नई दवा जोड़ने के लिए ऊपर &ldquo;नई दवा जोड़ें&rdquo; बटन दबाएँ।
+              {t('medicines.addNew')}
             </p>
           </Card>
         )}
