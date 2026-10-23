@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
       .from('dose_events')
       .update({
         status: corrected_status,
-        notes: `सुधार: ${correctionReason} (पहले: ${existing.status})`,
+        notes: `सुधार: ${correction_reason} (पहले: ${existing.status})`,
         confirmed_by: user.id,
         updated_at: new Date().toISOString(),
       })
