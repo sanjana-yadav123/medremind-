@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { ExtractedMedicine } from '@/lib/types/database';
 import { SmartPrescriptionNERAdapter } from '@/lib/ocr/adapter';
+import { LocalDatabase } from '@/lib/offline/local-database';
 
 export default function PrescriptionsPage() {
   const { t } = useTranslation();
@@ -109,20 +110,30 @@ export default function PrescriptionsPage() {
 
     try {
       for (const med of verifiedOnes) {
-        await fetch('/api/medicines', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: med.candidate_name,
-            prescribed_dose: med.candidate_strength || '1 गोली',
-            route: 'oral',
-            instructions: med.candidate_instructions || 'डॉक्टर के निर्देशानुसार',
-            is_prn: med.candidate_frequency === 'as_needed',
-            schedule_type: med.candidate_frequency || 'once_daily',
-            times_of_day: ['08:30'],
-            start_date: new Date().toISOString().split('T')[0],
-          }),
+        const newMed = LocalDatabase.addMedicine({
+          patient_id: 'local_user',
+          name: med.candidate_name,
+          prescribed_dose: med.candidate_strength || '1 tablet',
+          route: 'oral',
+          instructions: med.candidate_instructions || 'As prescribed by doctor',
+          is_prn: med.candidate_frequency === 'as_needed',
+          is_archived: false,
+          lifespan_target: 'senior',
         });
+
+        if (med.candidate_frequency !== 'as_needed') {
+          LocalDatabase.addSchedule({
+            medicine_id: newMed.id,
+            patient_id: 'local_user',
+            schedule_type: (med.candidate_frequency as any) || 'once_daily',
+            times_of_day: ['08:30'],
+            days_of_week: [0, 1, 2, 3, 4, 5, 6],
+            start_date: new Date().toISOString().split('T')[0],
+            end_date: null,
+            is_active: true,
+            deduplication_hash: `sched_${newMed.id}_${Date.now()}`,
+          });
+        }
       }
 
       setIsSavedSuccessfully(true);

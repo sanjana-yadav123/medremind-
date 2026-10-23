@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { useRouter, useParams } from 'next/navigation';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useTranslation } from '@/lib/i18n';
 import { Button } from '@/components/ui/Button';
@@ -11,10 +11,10 @@ import { ArrowLeft, AlertCircle } from 'lucide-react';
 import { MedicineRoute } from '@/lib/types/database';
 import { LocalDatabase } from '@/lib/offline/local-database';
 
-export default function EditMedicinePage() {
+function EditMedicineContent() {
   const router = useRouter();
-  const params = useParams();
-  const id = params?.id as string;
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id') || '';
   const { t } = useTranslation();
 
   const [name, setName] = useState('');
@@ -191,5 +191,13 @@ export default function EditMedicinePage() {
         </form>
       </Card>
     </div>
+  );
+}
+
+export default function EditMedicinePage() {
+  return (
+    <Suspense fallback={<div className="text-center py-12 font-bold text-xl">Loading...</div>}>
+      <EditMedicineContent />
+    </Suspense>
   );
 }

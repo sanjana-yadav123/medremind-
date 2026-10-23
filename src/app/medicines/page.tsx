@@ -156,7 +156,7 @@ export default function MedicinesPage() {
               </div>
 
               <div className="flex items-center gap-3 self-end sm:self-auto">
-                <Link href={`/medicines/${med.id}/edit`}>
+                <Link href={`/medicines/edit?id=${med.id}`}>
                   <Button
                     variant="secondary"
                     size="normal"
