@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
       details: {
         previous_status: existing.status,
         new_status: corrected_status,
-        reason: correctionReason,
+        reason: correction_reason,
       },
     });
 
